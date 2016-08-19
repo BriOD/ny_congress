@@ -24,8 +24,9 @@ class NyCongress::CLI
       #what i ideally want: @districts = NyCongress::District.all
 
      @districts = NyCongress::District.all
-     @districts.each do |d|
-       puts "#{d.number}"
+
+     @districts.each.with_index(1) do |d, i|
+       puts "#{i}: #{d.location}"
      end
 
   end
@@ -34,18 +35,27 @@ class NyCongress::CLI
     input = nil
     while input != "exit"
       puts "Enter the number of the district you'd like more info on, type list to see list of districts again, or type exit"
-
-      input = gets.strip
-      case input
-      when "1"
-        puts "More info on district 1"
-      when "2"
-        puts "more info on district 2"
-      when "3"
-        puts "More info on district 3"
-      when "list"
+      input = gets.strip.downcase
+      if input.to_i > 0
+        puts @districts[input.to_i - 1]
+      elsif input == "list"
         list_districts
       else
+
+
+
+
+
+      # case input
+      # when "1"
+      #   puts "More info on district 1"
+      # when "2"
+      #   puts "more info on district 2"
+      # when "3"
+      #   puts "More info on district 3"
+      # when "list"
+      #   list_districts
+      # else
         puts "Not sure what you want, type list or exit"
       end
     end
