@@ -6,3 +6,4 @@ require_relative "ny_congress/version"
 
 
 require_relative './ny_congress/cli'
+require_relative './ny_congress/district'
