@@ -1,3 +1,6 @@
+require 'nokogiri'
+require "pry"
+
 require_relative "ny_congress/version"
 #
 # module NyCongress
