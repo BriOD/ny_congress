@@ -23,7 +23,11 @@ class NyCongress::CLI
 
       #what i ideally want: @districts = NyCongress::District.all
 
-      NyCongress::District.all
+     @districts = NyCongress::District.all
+     @districts.each do |d|
+       puts "#{d.number}"
+     end
+
   end
 
   def menu
