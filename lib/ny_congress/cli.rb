@@ -37,6 +37,8 @@ class NyCongress::CLI
         puts "More info on district 3"
       when "list"
         list_districts
+      else
+        puts "Not sure what you want, type list or exit"
       end
     end
   end
