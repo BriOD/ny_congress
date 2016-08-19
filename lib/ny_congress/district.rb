@@ -31,6 +31,22 @@ class NyCongress::District
 
   end
 
+  def self.scrape_districts
+    districts = []
+
+    districts << self.scrape_wiki
+
+    districts
+
+  end
+
+  def self.scrape_wiki
+    doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/New_York%27s_congressional_districts"))
+
+  end
+
+
+
 
 
 end
