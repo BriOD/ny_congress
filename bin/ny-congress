@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
-require './lib/ny_congress'
+# require './lib/ny_congress'
+
+require "bundler/setup"
+require "ny_congress"
 
 NyCongress::CLI.new.call
