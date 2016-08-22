@@ -22,17 +22,19 @@ class NyCongress::CLI
     #   DOC
 
       #what i ideally want: @districts = NyCongress::District.all
-
+    NyCongress::District.scrape
      @districts = NyCongress::District.all
-
      @districts.each.with_index(1) do |d, i|
-       puts "#{i}: #{d.location}"
+       puts "#{i}"
      end
+
+
 
   end
 
   def menu
     input = nil
+    @districts
     while input != "exit"
       puts "Enter the number of the district you'd like more info on, type list to see list of districts again, or type exit"
       input = gets.strip.downcase
