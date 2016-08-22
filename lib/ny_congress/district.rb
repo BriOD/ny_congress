@@ -1,7 +1,16 @@
 class NyCongress::District
-  attr_accessor :number, :location, :representative, :contact
+  attr_accessor :number, :representative, :party, :contact
 
-@@all = [  ]
+  def initialize(number=nil, representative=nil, party=nil, contact=nil)
+    @number = number
+    @representative = representative
+    @party = party
+    @contact = contact
+    @@all << self
+
+  end
+
+@@all = []
 
 
   def self.all
