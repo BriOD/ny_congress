@@ -54,8 +54,11 @@ class NyCongress::District
     main_doc = page.xpath('//h2[@id="state_ny"]')
     doc = main_doc.first.next_element.children.children
     content = doc.map {|c| c.text.strip.split("\n").reject(&:empty?)}.reject(&:empty?)
-    content.each {|c| c.pop }
-    binding.pry
+    useable_content = content[1..28]
+    useable_content.each do |d|
+      NyCongress::District.new(d[0], d[1], d[2], d[4])
+    end
+binding.pry
 
 
 
