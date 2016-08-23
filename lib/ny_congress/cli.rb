@@ -24,12 +24,11 @@ class NyCongress::CLI
       puts "Enter the number of the district you'd like more info on, type list to see list of districts again, or type exit"
       input = gets.strip.downcase
       if input.to_i > 0
-        puts @districts[input.to_i - 1].representative
-      elsif input == "list"
-        @districts.each do |d|
-          puts "#{d.number}"
-        end
+        puts "District #{@districts[input.to_i - 1].number} is represented by: #{@districts[input.to_i - 1].representative} who is a #{@districts[input.to_i - 1].party}."
+        puts "If you'd like to contact them. They can be reached at: #{@districts[input.to_i - 1].contact}."
 
+      elsif input == "list"
+        list
       else
         puts "Not sure what you want, type list or exit"
       end
@@ -38,6 +37,13 @@ class NyCongress::CLI
 
   def goodbye
     puts "Have a good day"
+  end
+
+  def list
+    @districts.each do |d|
+      puts "#{d.number}"
+    end
+
   end
 
 end
