@@ -1,8 +1,6 @@
 # NyCongress
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ny_congress`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to ny_congress gem. With this gem you will be able to see information about NY Congressional districts. You will see who represents that district, what party they belong to, and how to contact them.
 
 ## Installation
 
@@ -22,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Type the following line and follow instructions on the screen.
+
+$ ny_congress
 
 ## Development
 
@@ -32,10 +32,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ny_congress.
+Bug reports and pull requests are welcome on GitHub at https://github.com/BriOD/ny_congress.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
