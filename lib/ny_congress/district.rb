@@ -50,6 +50,8 @@ class NyCongress::District
   #
   # end
 
+# http://www.house.gov/representatives/#state_ne
+
   def self.scrape
     page = Nokogiri::HTML(open('http://www.house.gov/representatives/#state_ne'))
     main_doc = page.xpath('//h2[@id="state_ny"]')
@@ -60,11 +62,6 @@ class NyCongress::District
     useable_content.each do |d|
       NyCongress::District.new(d[0], d[1], d[2], d[4])
     end
-
-
-
-
-
   end
 
 
