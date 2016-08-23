@@ -7,13 +7,14 @@ class NyCongress::CLI
   end
 
   def list_districts
-    puts "There are 27 congressional districts in New York:"
+    puts "Here's a list of all the Congressinal districts in NY state:"
 
     NyCongress::District.scrape
      @districts = NyCongress::District.all
-     @districts.each.with_index(1) do |d, i|
-       puts "#{i}"
+     @districts.each do |d|
+       puts "#{d.number}"
      end
+
   end
 
   def menu
@@ -25,7 +26,10 @@ class NyCongress::CLI
       if input.to_i > 0
         puts @districts[input.to_i - 1].representative
       elsif input == "list"
-        list_districts
+        @districts.each do |d|
+          puts "#{d.number}"
+        end
+
       else
         puts "Not sure what you want, type list or exit"
       end
@@ -35,6 +39,5 @@ class NyCongress::CLI
   def goodbye
     puts "Have a good day"
   end
-
 
 end
