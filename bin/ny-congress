@@ -3,6 +3,6 @@
 # require './lib/ny_congress'
 
 require "bundler/setup"
-require "ny_congress"
+require_relative "../lib/ny_congress"
 
 NyCongress::CLI.new.call

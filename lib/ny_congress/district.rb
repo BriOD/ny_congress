@@ -3,12 +3,15 @@ class NyCongress::District
 
   @@all = []
 
-
   def initialize(number=nil, representative=nil, party=nil, contact=nil)
     @number = number
     @representative = representative
     @party = party
     @contact = contact
+    save
+  end
+
+  def save
     @@all << self
   end
 
@@ -17,22 +20,24 @@ class NyCongress::District
     @@all
   end
 
+end
+
+class NyCongress::Scraper
 
   def self.scrape
     page = Nokogiri::HTML(open('http://www.house.gov/representatives/#state_ne'))
     main_doc = page.xpath('//h2[@id="state_ny"]')
     doc = main_doc.first.next_element.children.children
     content = doc.map {|c| c.text.strip.split("\n").reject(&:empty?)}.reject(&:empty?)
-    useable_content = content[1..28]
-    useable_content.each do |d|
-      if d[2] == "D"
-        d[2] = "Democrat"
-      elsif d[2] == "R"
-        d[2] = "Republican"
+
+    content[1..28].each do |district|
+      if district[2] == "D"
+        district[2] = "Democrat"
+      elsif district[2] == "R"
+        district[2] = "Republican"
       end
 
-      NyCongress::District.new(d[0], d[1], d[2], d[4])
-
+      NyCongress::District.new(district[0], district[1], district[2], district[4])
 
     end
   end
